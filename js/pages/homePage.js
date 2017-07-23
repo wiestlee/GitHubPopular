@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import PopularPage from './popularPage';
+import AsynStorageTest from '../../AsynStorageTest'
+import MyPage from './my/myPage'
 export default class HomePage extends Component {
     constructor(props){
         super(props);
@@ -38,9 +40,7 @@ export default class HomePage extends Component {
                         renderIcon={() => <Image style={styles.image} source={require('../../res/images/ic_trending.png')}/>}
                         renderSelectedIcon={() =><Image style={[styles.image,{tintColor:'#2196F3'}]} source={require('../../res/images/ic_trending.png')}/>}
                         onPress={() => this.setState({selectedTab: 'tb_trending'})}>
-                        <View style={{backgroundColor: 'yellow',flex:1}}>
-
-                        </View>
+                      <AsynStorageTest/>
                     </TabNavigator.Item>
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'tb_favorite'}
@@ -60,9 +60,7 @@ export default class HomePage extends Component {
                         renderIcon={() => <Image style={styles.image} source={require('../../res/images/ic_my.png')}/>}
                         renderSelectedIcon={() =><Image style={[styles.image,{tintColor:'#2196F3'}]} source={require('../../res/images/ic_my.png')}/>}
                         onPress={() => this.setState({selectedTab: 'tb_my'})}>
-                        <View style={{backgroundColor: 'blue',flex:1}}>
-
-                        </View>
+                        <MyPage/>
                     </TabNavigator.Item>
                 </TabNavigator>
             </View>
